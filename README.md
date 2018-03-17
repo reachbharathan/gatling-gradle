@@ -6,7 +6,7 @@ Demo project showcasing gatling performance testing tool using gradle
 ## Getting Started
 
 clone repo "reachbharathan/gatling-gradle.git" using https or ssh
-[gitlab clone](https://docs.gitlab.com/ee/gitlab-basics/command-line-commands.html) - The web framework used
+[gitlab clone](https://docs.gitlab.com/ee/gitlab-basics/command-line-commands.html)
 
 ### Prerequisites
 
@@ -45,6 +45,7 @@ gradle gatlingRun-com.project.simu.MySimulation
 
 * [Running Gatling through Gradle – Complete Beginner’s Guide](http://james-willett.com/2017/04/running-gatling-through-gradle/)
 * [gradle-gatling-plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation)
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/)
 
 ## License
 
