@@ -2,6 +2,8 @@ package bharathk
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import pages.Search
+
 import scala.concurrent.duration._
 
 class ComDbHomePage extends Simulation{
@@ -13,10 +15,16 @@ class ComDbHomePage extends Simulation{
     .acceptEncodingHeader("gzip, deflate")
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36")
 
-  val scn = scenario("computerDb")
+  val baseScn = scenario("computerDb")
     .exec(http("HomePage")
       .get("/"))
     .pause(5)
 
-  setUp(scn.inject(atOnceUsers(10))).protocols(httpConf)
+  val userScn = scenario("User Scenario").exec(Search.search)
+  val adminScn = scenario("Admin Scenario").exec(Search.search)
+
+  setUp(
+    userScn.inject(rampUsers(10) over (10 seconds)),
+    adminScn.inject(rampUsers(10) over(10 seconds))
+  ).protocols(httpConf)
 }
