@@ -13,4 +13,4 @@ build/
 
 ### Gradle template
 .gradle/
-gatling-gradle2.*
+gatling-gradle.*
