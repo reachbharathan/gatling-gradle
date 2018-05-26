@@ -43,9 +43,9 @@ gradle gatlingRun-com.project.simu.MySimulation
 
 ## Reference & Setup guide
 
-* [Running Gatling through Gradle – Complete Beginner’s Guide](http://james-willett.com/2017/04/running-gatling-through-gradle/)
-* [gradle-gatling-plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation)
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/)
+[Running Gatling through Gradle – Complete Beginner’s Guide](http://james-willett.com/2017/04/running-gatling-through-gradle/)
+[gradle-gatling-plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation)
+[Dropwizard](http://www.dropwizard.io/1.0.2/docs/)
 
 ## License
 
