@@ -4,15 +4,21 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 
-object Search extends Simulation {
+object Search {
 
-  val search = exec(http("Home")
-    .get("/"))
-    .pause(3)
+  val feeder = csv("search.csv").random
+  val searchText = "${searchCriterion}"
+
+  val search = exec(http("Home").get("/"))
+    .pause(1)
+    .feed(feeder)
     .exec(http("Search")
-      .get("/computers?f=macbook"))
-    .pause(2)
+      .get("/computers?f=${searchCriterion}") // 4
+      .check(css("a:contains('${searchComputerName}')", "href").saveAs("computerURL"))
+    )
+
+    .pause(1)
     .exec(http("Select")
-      .get("/computers/6"))
-    pause(2)
+      .get("${computerURL}"))
+    .pause(1)
 }
