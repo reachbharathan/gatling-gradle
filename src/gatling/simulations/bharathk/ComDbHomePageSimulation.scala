@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 
 class ComDbHomePageSimulation extends Simulation{
 
-  val httpConf = http.baseURL("http://computer-database.gatling.io")
+  val httpConf = http.baseUrl("http://computer-database.gatling.io")
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .doNotTrackHeader("1")
     .acceptLanguageHeader("en-US,en;q=0.5")
@@ -23,6 +23,6 @@ class ComDbHomePageSimulation extends Simulation{
   setUp(
 //    userScn.inject(rampUsers(10) over (10 seconds)),
 //    browseScn.inject(rampUsers(10) over (10 seconds)),
-    editScn.inject(rampUsers(10) over (10 seconds))
+    editScn.inject(rampUsers(10) during (10 seconds))
   ).protocols(httpConf)
 }
