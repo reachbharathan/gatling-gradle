@@ -2,7 +2,7 @@ package bharathk
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import pages.Search
+import pages.{Browse, Edit, Search}
 
 import scala.concurrent.duration._
 
@@ -17,8 +17,12 @@ class ComDbHomePageSimulation extends Simulation{
 
   val userScn = scenario("User Scenario").exec(Search.search)
   val adminScn = scenario("Admin Scenario").exec(Search.search)
+  val browseScn = scenario("Browse page Scenario").exec(Browse.browse1)
+  val editScn = scenario("Edit page Scenario").exec(Edit.edit)
 
   setUp(
-    userScn.inject(rampUsers(10) over (10 seconds))
+//    userScn.inject(rampUsers(10) over (10 seconds)),
+//    browseScn.inject(rampUsers(10) over (10 seconds)),
+    editScn.inject(rampUsers(10) over (10 seconds))
   ).protocols(httpConf)
 }
